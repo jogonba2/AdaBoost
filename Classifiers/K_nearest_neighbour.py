@@ -93,9 +93,7 @@ def classify(prototypes,test_sample,p=2,k=1,w=0,wil=1,cn=1):
 	# Classificate KNN #
 	return knn(prototypes,p,k,test_sample,w)
 	
-""" Stringify output """
-def __str__(classified):
-	for sample in classified: print "Class of ",sample[0]," -> ",sample[1]
+def __str__(): return "K_nearest_neighbour classifier"
 	
 """if __name__ == "__main__":
 	prototypes    = [([1,2],-1),([1,3],-1),([2,2],-1),([2,3],-1),([5,2],1),([5,3],1),([5,4],1),([4,3],1),([4,4],1)] # Train samples #

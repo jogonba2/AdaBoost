@@ -39,6 +39,7 @@ def classify(train_samples,sample):
 	cclass = perceptron_recog(train_samples,alpha,sample,kernel_sample_d_hamming)
 	return cclass
 	
+def __str__(): return "KernelPerceptron classifier"	
 """if __name__ == '__main__':
 	train_samples = [([1,1],1),([2,2],-1),([1,3],1),([3,1],-1),([3,3],1)]
 	sample_test = [3,1]

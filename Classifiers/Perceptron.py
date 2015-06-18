@@ -46,6 +46,8 @@ def classify(learnSamples,recognizementSample,b=0.00001,alpha=0.00001,maxLimit=1
 	if i==0: i=-1
 	return i
 	
+def __str__(): return "Perceptron classifier"
+
 """if __name__ == '__main__':
 	learnSamples = [([1,1],-1),([2,2],1),([0.5,0.7],1)]
 	recognizementSample = [-5,-7]

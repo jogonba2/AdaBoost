@@ -45,6 +45,7 @@ def constant_x_vector(a,v): return [a*v[i] for i in xrange(len(v))]
 def log_vector(v): return[log(v[i],2) for i in xrange(len(v))]
 def vector_x_vector(v1,v2): return reduce(lambda x,y: x+y,[v1[i]*v2[i] for i in xrange(len(v1))])
 
+def __str__(): return "Multinomial classifier"
 """if __name__ == "__main__":
 	samples = [([1,1],-1),([3,3],-1),([2,100],1),([2,20],1)]
 	sample_test   = [1,1]
