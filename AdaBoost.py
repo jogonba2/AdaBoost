@@ -32,7 +32,7 @@ def footer(result_file=None): print "[END] Process finished without saving resul
 def usage():
 	print "Usage: AdaBoost.py train_data_file iterations [classify] [test_data_file] [output_file] \n\n\
 \ttrain_data_file -> Name of file with train data\n\
-\titerations      -> Process iterations\n\
+\titerations      -> process iterations\n\
 \tclassify        -> Optional [YES-NO], specifies if you want to classify test data\n\
 \ttest_data_file  -> Optional, only if you want to classify, specifies name of file with test data\n\
 \toutput_file     -> Optional, specifies destination file\n"
@@ -85,8 +85,7 @@ def load_data(filename):
 	return obj
 	
 def save_object(object,dest):
-	with open(dest,'wb') as fd:
-		pickle.dump(object,fd,pickle.HIGHEST_PROTOCOL)
+	with open(dest,'wb') as fd: pickle.dump(object,fd,pickle.HIGHEST_PROTOCOL)
 	fd.close()	
 	
 def classify_boost(final_classifier,samples,sample):
@@ -100,8 +99,7 @@ def classify_file(final_classifier,samples,test_samples,output_file):
   / \ / \ / \ / \ / \ / \ / \ 
  ( R | e | s | u | l | t | s )
   \_/ \_/ \_/ \_/ \_/ \_/ \_/\r\n\r\n\r\n""")
-		fd.write(stringify_classifier(final_classifier)+"\r\n")
-  	
+		fd.write(stringify_classifier(final_classifier)+"\r\n")	
 		for sample in test_samples: fd.write("Sample "+str(sample)+" classified in: "+str(classify_boost(final_classifier,samples,sample))+"\r\n")
 	fd.close()
     	
