@@ -32,7 +32,7 @@ def footer(result_file=None): print "[END] Process finished without saving resul
 def usage():
 	print "Usage: AdaBoost.py train_data_file iterations [classify] [test_data_file] [output_file] \n\n\
 \ttrain_data_file -> Name of file with train data\n\
-\titerations      -> process iterations\n\
+\titerations      -> Process iterations\n\
 \tclassify        -> Optional [YES-NO], specifies if you want to classify test data\n\
 \ttest_data_file  -> Optional, only if you want to classify, specifies name of file with test data\n\
 \toutput_file     -> Optional, specifies destination file\n"
