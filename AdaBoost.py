@@ -79,10 +79,11 @@ def AdaBoost(samples,M):
 		weight_samples = map(lambda x:float(x)/sum(weight_samples),weight_samples)
 	return final_classifier
 
-def load_data(filename): 
-	with open(filename,'rb') as fd: obj = pickle.load(fd)
-	fd.close()
-	return obj
+def load_data(filename):
+	try:
+		with open(filename,'rb') as fd: obj = pickle.load(fd)
+		fd.close()
+	except IOError as ie: print "[-] File",filename," doesn't exist.\n"; exit(0)
 	
 def save_object(object,dest):
 	with open(dest,'wb') as fd: pickle.dump(object,fd,pickle.HIGHEST_PROTOCOL)
@@ -118,14 +119,15 @@ if __name__ == "__main__":
 	cls()
 	header()
 	if len(argv)<3: usage();exit(0)
-	elif len(argv)!=6 or argv[3].lower() not in ["yes","no"]: usage();exit()
+	if len(argv)!=3:
+		if len(argv)!=6 or argv[3].lower() not in ["yes","no"]: usage();exit()
 	train_data_file = argv[1]
 	iterations      = int(argv[2])
 	if len(argv)>3:
 		classify        = argv[3]
 		test_data_file  = argv[4]
 		output_file     = argv[5]
-		train_samples = load_data(train_data_file)
+	train_samples = load_data(train_data_file)
 	final_classifier = AdaBoost(train_samples,iterations)
 	if len(argv)>=3 and argv[3].lower()=="yes":
 		test_samples  = load_data(test_data_file) # Test with same train data, ... VERY OPTIMISTIC!! #
