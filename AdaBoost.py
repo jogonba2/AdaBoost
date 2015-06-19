@@ -83,6 +83,7 @@ def load_data(filename):
 	try:
 		with open(filename,'rb') as fd: obj = pickle.load(fd)
 		fd.close()
+		return obj
 	except IOError as ie: print "[-] File",filename," doesn't exist.\n"; exit(0)
 	
 def save_object(object,dest):
